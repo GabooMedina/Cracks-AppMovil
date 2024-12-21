@@ -1,0 +1,7 @@
+{
+  "name": "cracksApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
