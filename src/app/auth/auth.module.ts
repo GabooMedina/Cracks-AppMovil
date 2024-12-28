@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
-
+import { RouterModule } from '@angular/router';
 import { AuthPageRoutingModule } from './auth-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';  // Importa ReactiveFormsModule
+import { ReactiveFormsModule } from '@angular/forms'; 
 import { AuthPage } from './auth.page';
 
 @NgModule({
@@ -14,7 +14,8 @@ import { AuthPage } from './auth.page';
     FormsModule,
     IonicModule,
     AuthPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   declarations: [AuthPage]
 })

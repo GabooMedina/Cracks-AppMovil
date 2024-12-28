@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Importaciones de FireBase
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
 
 @NgModule({
@@ -17,7 +17,7 @@ import { environment } from 'src/environments/environment';
              IonicModule.forRoot(),
              AppRoutingModule,
              AngularFireModule.initializeApp(environment.firebaseConfig),
-             AngularFireAuthModule,
+             AngularFirestoreModule
             ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
