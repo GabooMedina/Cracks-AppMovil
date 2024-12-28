@@ -56,10 +56,12 @@ export class AuthPage implements OnInit {
 
   async logInWithGoogle() {
     try {
-      const user = await this.authService.googleLogin();
+      const userCredential = await this.authService.googleLogin();
+      const displayName = userCredential?.user?.displayName || 'Usuario';
       this.router.navigate(['/home']);
-      this.showToast(`Bienvenido, ${user.user?.displayName}`, 'success');
+      this.showToast(`Bienvenido, ${displayName}`, 'success');
     } catch (error) {
+      console.error('Error en logInWithGoogle:', error);
       this.showToast('Error al iniciar sesión con Google', 'danger');
     }
   }

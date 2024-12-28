@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 import { map, Observable } from 'rxjs';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+
 
 @Injectable({
   providedIn: 'root'
@@ -22,14 +24,17 @@ export class AuthService {
 
   // Login con Google
   async googleLogin(): Promise<any> {
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
     try {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      const user = await this.afAuth.signInWithPopup(provider);
-      return user;
+      const userCredential = await signInWithPopup(auth, provider);
+      return userCredential;
     } catch (error) {
+      console.error('Error en googleLogin:', error);
       throw error;
     }
   }
+  
 
   // Inicio de sesión con Facebook
   async facebookLogin(): Promise<any> {
