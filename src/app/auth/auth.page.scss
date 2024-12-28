@@ -1,18 +1,20 @@
 ion-content {
-    --background: #f4f5f8;
+    --background: #FCFCFC;
+    --padding-top: 40px; /* Reduce el padding superior del contenido */
   }
   
   .center-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;;
     height: 100%;
-    padding: 20px;
+    padding: 10px;
   }
   
   .logo-container {
     margin-bottom: 0px; // Reducido de 20px a 0px
+    margin-top: 0px; /* Elimina cualquier espacio superior adicional */
     
     img {
       width: 200px;
@@ -25,7 +27,7 @@ ion-content {
     margin-bottom: 15px; // Reducido de 30px a 15px
   
     h1 {
-      font-size: 32px;
+      font-size: 40px;
       font-weight: bold;
       color: #333;
       margin-bottom: -10px;
@@ -56,7 +58,7 @@ ion-content {
       }
   
       ion-input {
-        --background: #ffffff;
+        --background: #EEEEEE;
         --padding-start: 10px;
         --padding-end: 10px;
         --border-radius: 10px;
@@ -64,7 +66,7 @@ ion-content {
         --border-style: solid;
         --border-width: 1px;
         font-size: 16px;
-        --color: #000;
+        --color: #4B5057;
         text-align: center;
       }
     }
