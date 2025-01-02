@@ -41,7 +41,7 @@ export class AuthPage implements OnInit {
       const user = userCredential.user; // Obtenemos el usuario del objeto retornado
       const userName = user?.displayName || user?.email; // Usamos displayName o email como respaldo
   
-      this.router.navigate(['/home']); // Redirige a la página principal
+      this.router.navigate(['/navigation-tabs']); // Redirige a la página principal
       this.showToast(`Bienvenido, ${userName}`, 'success');
     } catch (error) {
       // Manejo de errores
@@ -58,7 +58,7 @@ export class AuthPage implements OnInit {
     try {
       const userCredential = await this.authService.googleLogin();
       const displayName = userCredential?.user?.displayName || 'Usuario';
-      this.router.navigate(['/home']);
+      this.router.navigate(['/navigation-tabs']);
       this.showToast(`Bienvenido, ${displayName}`, 'success');
     } catch (error) {
       console.error('Error en logInWithGoogle:', error);
@@ -69,7 +69,7 @@ export class AuthPage implements OnInit {
   async logInWithFacebook() {
     try {
       const user = await this.authService.facebookLogin();
-      this.router.navigate(['/home']);
+      this.router.navigate(['/navigation-tabs']);
       this.showToast(`Bienvenido, ${user.user?.displayName}`, 'success');
     } catch (error) {
       this.showToast('Error al iniciar sesión con Facebook', 'danger');

@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Equipos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="teams_content">
+
+  <!-- Contenedor para la imagen y el texto descriptivo -->
+  <div class="description-container">
+    <img src="../../../assets/icon/teamsColor.png" alt="Descripción de la imagen" class="description-image" />
+    <p class="description-text">
+      Gestiona tus equipos de forma sencilla: crea, edita y elimina los equipos en nuestra 
+      aplicación <strong>Cracks</strong> para llevar el control completo.
+    </p>
+  </div>
+
+  <!-- Lista de equipos -->
+  <ion-list>
+    <ion-item-sliding *ngFor="let team of teams; let i = index">
+      <ion-item>
+        <ion-label>
+          <h2>{{ team.name }}</h2>
+          <p>Entrenador: {{ team.coach }}</p>
+        </ion-label>
+      </ion-item>
+
+      <!-- Opciones que aparecen al deslizar -->
+      <ion-item-options side="end">
+        <ion-item-option color="primary" (click)="openModal(team)">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="deleteTeam(team.id)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <!-- Botón de agregar equipo -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

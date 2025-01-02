@@ -1,0 +1,73 @@
+ion-content {
+  --background: #FCFCFC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1.5rem 0;
+}
+
+.welcome-container {
+  text-align: center;
+  margin: auto;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #f6ba67;
+  margin-top: 8rem;
+  font-weight: bold;
+}
+
+.welcome-image {
+  display: block;
+  margin: 1rem auto;
+  width: 150px; /* Ajusta el tamaño de la imagen */
+  height: auto;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: justify;
+  margin: 1rem 1.5rem;
+  line-height: 1.6;
+}
+
+
+
+  ion-icon {
+    fill: currentColor; /* Los íconos heredan el color */
+    transition: transform 0.2s ease, fill 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  ion-tab-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray; /* Color por defecto */
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &.tab-selected {
+    background-color: #3880ff; /* Fondo del tab seleccionado */
+    border-radius: 10px; /* Bordes redondeados para un efecto cuadrado pero suave */
+    padding: 6px; /* Espaciado interno para ajustar tamaño */
+    width: 48px; /* Ancho fijo */
+    height: 48px; /* Alto fijo */
+  }
+
+  ion-icon {
+    fill: currentColor; /* Los íconos heredan el color del tab-button */
+    transition: transform 0.2s ease, fill 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1); /* Pequeño aumento en el tamaño del ícono */
+    }
+  }
+}
+
+

@@ -1,0 +1,41 @@
+
+<ion-content [fullscreen]="true">
+
+  <div class="welcome-container">
+    <h1>¡Bienvenido a Cracks!</h1>
+
+    <img src="../../assets/icon/soccer-player.png" alt="Soccer Player" class="welcome-image">
+
+    <p>
+      Prepárate para vivir la pasión del fútbol como nunca antes. En Cracks puedes gestionar tus equipos, 
+      jugadores y torneos con facilidad. Crea, edita y organiza cada detalle para llevar a tu equipo al 
+      siguiente nivel. ¡El futuro de tus campeonatos comienza aquí!
+    </p>
+  </div>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" color="gray">
+      <ion-tab-button tab="home" href="/navigation-tabs/home">
+        <ion-icon aria-hidden="true" src="../../assets/house.svg" size="large" class="icon" color="primary"></ion-icon>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="teams-tab" href="/navigation-tabs/teams-tab">
+        <ion-icon aria-hidden="true" src="../../assets/team.svg" size="large" class="icon" color="primary"></ion-icon>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="players-tab" href="/navigation-tabs/players-tab">
+        <ion-icon aria-hidden="true" src="../../assets/player.svg" size="large" class="icon" color="primary"></ion-icon>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="matches-tab" href="/navigation-tabs/matches-tab">
+        <ion-icon aria-hidden="true" src="../../assets/matches.svg" size="large" class="icon" color="primary"></ion-icon>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="account-tab" href="/navigation-tabs/account-tab">
+        <ion-icon aria-hidden="true" src="../../assets/user.svg" size="large" class="icon" color="primary"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+</ion-content>
+

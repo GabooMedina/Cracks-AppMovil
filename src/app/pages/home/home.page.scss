@@ -1,0 +1,11 @@
+.home_content{
+  --background: var(--ion-color-primary);
+  text-align: center;
+  overflow: show;
+}
+ion-toolbar{
+  --background: var(--ion-color-secondary);
+}
+ion-title{
+  --color: var(--ion-color-secondary-contrast);
+}

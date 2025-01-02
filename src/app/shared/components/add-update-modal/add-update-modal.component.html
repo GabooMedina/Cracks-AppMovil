@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ isEdit ? 'Editar' : 'Agregar' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button class="close-button" (click)="closeModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="modal-content">
+  <img src="../../../../assets/icon/resume.png" alt="">
+
+  <!-- Contenedor adicional para la tarjeta del formulario -->
+  <div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <!-- Campos del formulario -->
+      <ion-item *ngFor="let field of fields">
+        <ion-label position="stacked">{{ field.label }}</ion-label>
+        <ion-input
+          *ngIf="field.type === 'text'"
+          formControlName="{{ field.key }}"
+          [type]="field.type"
+        ></ion-input>
+        <ion-input
+          *ngIf="field.type === 'number'"
+          formControlName="{{ field.key }}"
+          [type]="field.type"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Mostrar errores de validación -->
+      <ion-text color="danger" *ngIf="form.invalid && form.touched">
+        Por favor, completa todos los campos requeridos.
+      </ion-text>
+
+      
+        <ion-button expand="block" type="submit" [disabled]="form.invalid">
+          {{ isEdit ? 'Actualizar' : 'Guardar' }}
+        </ion-button>
+      
+    </form>
+  </div>
+</ion-content>

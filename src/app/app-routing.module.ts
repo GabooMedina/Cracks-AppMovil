@@ -12,7 +12,8 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule)
   },
   {
-    path:'home',loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: 'navigation-tabs',
+    loadChildren: () => import('./navigation-tabs/navigation-tabs.module').then( m => m.NavigationTabsPageModule)
   },
   {
     path: '**',

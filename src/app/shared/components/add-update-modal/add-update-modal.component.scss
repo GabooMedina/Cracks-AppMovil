@@ -1,0 +1,88 @@
+.modal-content {
+    --background: #fcfcfc;
+    padding: 0 16px; // Padding general para el contenido
+  
+    /* Estilo para la imagen */
+    img {
+      display: block;
+      margin: 40px auto 10px;
+      width: 200px; // Imagen más pequeña
+      height: auto;
+    }
+  
+    /* Contenedor del formulario */
+    .form-container {
+      border: 1px solid #dcdcdc;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      max-width: 450px; // Reducido el ancho máximo
+      width: 90%; // Para asegurar margen en pantallas pequeñas
+      margin: 15px auto;
+      background-color: #949393; // Cambiado a blanco
+    }
+  
+
+    /* Botón de cerrar */
+    .close-button {
+      font-size: 14px;
+      --color: #e57373;
+      --background: transparent;
+      border: 1px solid #e57373;
+      border-radius: 6px;
+      padding: 5px 12px;
+      margin-right: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+  
+      &:hover {
+        --background: #e57373;
+        --color: white;
+      }
+    }
+  
+    /* Campos del formulario */
+    ion-item {
+      margin: 8px 0;
+      border-radius: 8px;
+      --background: #aaa8a8;
+      --padding-start: 10px;
+      --padding-end: 10px;
+      width: 100%;
+    }
+  
+    ion-label {
+      font-size: 18px;
+      font-weight: 500;
+      color: #444;
+      margin-bottom: 4px;
+    }
+  
+    ion-input {
+      font-size: 16px;
+      color: #333;
+      --padding-start: 8px;
+      margin-top: 4px;
+    }
+  
+    /* Texto de error */
+    ion-text[color="danger"] {
+      font-size: 14px;
+      margin: 10px 0;
+      text-align: center;
+      width: 100%;
+      display: block;
+    }
+  
+    /* Botón de acción */
+    ion-button {
+      margin: 20px auto 0;
+      width: 150px; // Botón más pequeño
+      height: 36px; // Altura reducida
+      font-size: 14px;
+      font-weight: 500;
+      --border-radius: 6px;
+      --background: #3498db;
+      --background-activated: #2980b9;
+      display: block; // Para centrar el botón
+    }
+  }

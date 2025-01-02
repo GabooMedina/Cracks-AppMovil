@@ -1,0 +1,105 @@
+.teams_content {
+  --background: #FCFCFC; // Un fondo gris muy claro
+}
+
+/* Estilo para el header */
+ion-toolbar {
+  --background: var(--ion-color-secondary);
+}
+
+ion-title {
+  --color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Contenedor de descripción */
+.description-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Centra el contenido horizontalmente
+  justify-content: center; // Centra el contenido verticalmente
+  margin: 10px 10px 5px; // Espaciado superior e inferior
+}
+
+/* Imagen de descripción */
+.description-image {
+  width: 200px; // Ajusta el tamaño de la imagen
+  height: auto; // Mantén la proporción
+  border-radius: 10px; // Bordes redondeados
+  margin-bottom: 15px; // Separación con el texto
+}
+
+/* Texto de descripción */
+.description-text {
+  font-size: 18px; // Tamaño de fuente
+  color: #666; // Color gris
+  text-align: justify; // Centrado horizontalmente
+  text-justify:distribute; // Texto justificado
+  padding: 0 15px; // Espaciado horizontal interno
+}
+
+/* Estilos para la lista */
+ion-list {
+  background: #FCFCFC;
+  margin: 0;
+  padding: 8px;
+  width: 100%;
+}
+
+ion-item-sliding {
+  margin: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: calc(100% - 20px);
+}
+
+ion-item {
+  --background: #ffffff; // Fondo blanco para las tarjetas
+  --border-radius: 12px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --inner-padding-end: 16px;
+  --min-height: 90px; // Un poco más alta
+  margin: 0;
+  width: 100%;
+  border-left: 4px solid #3498db; // Borde izquierdo azul
+}
+
+ion-label {
+  h2 {
+    font-size: 22px; // Título más grande
+    font-weight: bold;
+    color: #2c3e50; // Azul oscuro
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 18px; // Subtítulo más grande
+    color: #7f8c8d; // Gris para el texto secundario
+  }
+}
+
+/* Opciones al deslizar */
+ion-item-options {
+  border-radius: 0 12px 12px 0;
+}
+
+ion-item-option {
+  --color: white;
+  --background: #3498db; // Azul para editar
+  width: 70px;
+}
+
+ion-item-option[color="danger"] {
+  --background: #e74c3c; // Rojo más suave para eliminar
+}
+
+/* Botón flotante */
+ion-fab-button {
+  --background: #3880ff; // Azul para el botón de añadir
+  margin-bottom: 20px;
+  margin-right: 20px;
+  --box-shadow: 0 4px 12px rgba(0, 238, 255, 0.4); // Sombra para el botón
+}
