@@ -8,12 +8,15 @@ import { PlayersTabPageRoutingModule } from './players-tab-routing.module';
 
 import { PlayersTabPage } from './players-tab.page';
 
+import { SharedModule } from 'src/app/shared/shared.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PlayersTabPageRoutingModule
+    PlayersTabPageRoutingModule,
+    SharedModule
   ],
   declarations: [PlayersTabPage]
 })

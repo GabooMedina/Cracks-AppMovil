@@ -1,11 +1,95 @@
-.home_content{
-  --background: var(--ion-color-primary);
-  text-align: center;
-  overflow: show;
+.home_content {
+  --background: #FCFCFC; /* Fondo gris muy claro */
+  padding: 16px; /* Agregar algo de espaciado alrededor del contenido */
 }
-ion-toolbar{
-  --background: var(--ion-color-secondary);
+
+ion-toolbar {
+  --background: var(--ion-color-secondary); /* Color de fondo del toolbar */
 }
-ion-title{
-  --color: var(--ion-color-secondary-contrast);
+
+ion-title {
+  --color: white; /* Color blanco para el título */
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Estilo para las tarjetas */
+ion-card {
+  margin-bottom: 16px; /* Espaciado entre las tarjetas */
+  border-radius: 10px; /* Bordes redondeados para las tarjetas */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  background-color: #fff; /* Fondo blanco para las tarjetas */
+}
+
+ion-card-header {
+  background-color: #f0f0f0; /* Fondo gris claro para el encabezado de la tarjeta */
+  padding: 12px; /* Espaciado alrededor del título */
+}
+
+ion-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333; /* Color oscuro para el título */
+}
+
+ion-card-content {
+  padding: 16px; /* Espaciado alrededor del contenido */
+}
+
+.stat-card-content {
+  font-size: 16px;
+  color: #333;
+}
+
+.stat-card-content div {
+  margin-bottom: 8px; /* Espaciado entre las líneas */
+}
+
+.highlight {
+  color: #4caf50; /* Verde para los valores destacados (goles, asistencias) */
+  font-weight: bold; /* Resaltar con negrita */
+}
+
+/* Estilos para el buscador */
+ion-searchbar {
+  margin-bottom: 16px;
+  --background: #fff; /* Fondo blanco para la barra de búsqueda */
+  --placeholder-color: #aaa; /* Color gris para el texto del placeholder */
+  --input-padding-start: 16px; /* Padding en el inicio de la barra */
+  --border-radius: 10px; /* Bordes redondeados */
+  --height: 40px; /* Altura de la barra de búsqueda */
+}
+
+/* Contenedor de descripción */
+.description-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Centra el contenido horizontalmente
+  justify-content: center; // Centra el contenido verticalmente
+  margin: 10px 10px 5px; // Espaciado superior e inferior
+}
+
+/* Imagen de descripción */
+.description-image {
+  width: 200px; // Ajusta el tamaño de la imagen
+  height: auto; // Mantén la proporción
+  border-radius: 10px; // Bordes redondeados
+  margin-bottom: 15px; // Separación con el texto
+}
+
+/* Texto de descripción */
+.description-text {
+  font-size: 18px; // Tamaño de fuente
+  color: #666; // Color gris
+  text-align: justify; // Centrado horizontalmente
+  text-justify:distribute; // Texto justificado
+  padding: 0 15px; // Espaciado horizontal interno
+}
+
+/* Botón flotante */
+ion-fab-button {
+  --background: #3880ff; // Azul para el botón de añadir
+  margin-bottom: 20px;
+  margin-right: 20px;
+  --box-shadow: 0 4px 12px rgba(0, 238, 255, 0.4); // Sombra para el botón
 }

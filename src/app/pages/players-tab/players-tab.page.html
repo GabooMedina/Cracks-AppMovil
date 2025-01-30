@@ -7,9 +7,43 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="players_content">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">players-tab</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+   <!-- Contenedor para la imagen y el texto descriptivo -->
+   <div class="description-container">
+    <img src="../../../assets/icon/player.png" alt="Descripción de la imagen" class="description-image" />
+    <p class="description-text">
+      Gestiona a tus jugadores de forma sencilla: crea, edita y elimina jugadores en nuestra 
+      aplicación <strong>Cracks</strong> para llevar el control completo.
+    </p>
+  </div>
+
+   <!-- Lista de jugadores -->
+   <ion-list>
+    <ion-item-sliding *ngFor="let player of players; let i = index">
+      <ion-item>
+        <ion-label>
+          <h2>{{ player.player_name}} {{ player.player_surname }}</h2>
+          <p>#{{ player.player_shirt }} | Equipo: {{ player.team_name}}</p>
+        </ion-label>
+      </ion-item>
+
+      <!-- Opciones que aparecen al deslizar -->
+      <ion-item-options side="end">
+        <ion-item-option color="primary" (click)="openModal(player)">
+          <ion-icon slot="icon-only" name="create"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="deletePlayer(player.id)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <!-- Botón de agregar jugador -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>

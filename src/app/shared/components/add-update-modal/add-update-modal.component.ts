@@ -9,10 +9,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddUpdateModalComponent implements OnInit {
   @Input() formData: Record<string, any> = {}; // Datos iniciales
-  @Input() fields: { label: string; key: string; type: string }[] = []; // Campos dinámicos
+  @Input() fields: { label: string; key: string; type: string; options?: { label: string; value: any }[] }[] = []; // Campos dinámicos con opciones
   @Input() isEdit: boolean = false;
 
   form!: FormGroup;
+  minDate: string = new Date().toISOString(); // Min fecha para el selector
 
   constructor(
     private modalController: ModalController,
@@ -23,8 +24,15 @@ export class AddUpdateModalComponent implements OnInit {
     // Inicializar el formulario dinámico
     this.form = this.formBuilder.group(
       this.fields.reduce((acc: Record<string, any>, field) => {
+        let initialValue = this.formData[field.key] || '';
+
+        // Si el campo es de tipo "date", asegurarse de que sea un objeto Date
+        if (field.type === 'date' && initialValue) {
+          initialValue = initialValue instanceof Date ? initialValue : new Date(initialValue);
+        }
+
         acc[field.key] = [
-          this.formData[field.key] || '', // Valor inicial
+          initialValue, // Valor inicial
           Validators.required, // Validación requerida
         ];
         return acc;

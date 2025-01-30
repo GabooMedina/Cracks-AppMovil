@@ -21,30 +21,45 @@ export class SignUpPage implements OnInit {
     private toastController: ToastController,
     private afAuth: AngularFireAuth
   ) {
-    // Usa la instancia inicializada de Firebase
     this.firestoreInstance = getFirestore();
   }
 
   ngOnInit() {
     this.group = this.fb.group({
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
+      name: ['', [Validators.required, this.nameValidator]],
+      lastName: ['', [Validators.required, this.nameValidator]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required],
     });
   }
 
+  // Validación para solo letras y espacios
+  nameValidator(control: any) {
+    const regex = /^[A-Za-záéíóúÁÉÍÓÚñÑ ]+$/;
+    if (!regex.test(control.value)) {
+      return { invalidName: true };
+    }
+    return null;
+  }
+
   async save() {
     if (this.group.invalid) {
-      this.showToast('Por favor, completa todos los campos correctamente.', 'danger');
+      this.showToast('⚠️ Por favor, Completa Todos los Campos Correctamente.', 'danger');
       return;
     }
 
     const { name, lastName, email, password, confirmPassword } = this.group.value;
 
+    // Validación de contraseñas
     if (password !== confirmPassword) {
-      this.showToast('Las contraseñas no coinciden.', 'danger');
+      this.showToast('⚠️ Las Contraseñas no Coinciden.', 'danger');
+      return;
+    }
+
+    // Validación de contraseña mínima de 6 caracteres
+    if (password.length < 6) {
+      this.showToast('⚠️ La Contraseña debe tener al menos 6 caracteres.', 'danger');
       return;
     }
 
@@ -60,16 +75,14 @@ export class SignUpPage implements OnInit {
           createdAt: new Date(),
         });
 
-        this.showToast('Usuario registrado con éxito.', 'success');
+        this.showToast('✔️ Usuario Registrado con Éxito.', 'success');
         this.router.navigate(['/auth']);
       }
     } catch (error) {
       if (error instanceof Error) {
-        console.error('Error al registrar usuario:', error.message);
-        this.showToast('Error al registrar usuario: ' + error.message, 'danger');
+        this.showToast(`⚠️ Error al registrar usuario: ${error.message}`, 'danger');
       } else {
-        console.error('Error desconocido:', error);
-        this.showToast('Error desconocido.', 'danger');
+        this.showToast('⚠️ Error desconocido.', 'danger');
       }
     }
   }
@@ -77,9 +90,15 @@ export class SignUpPage implements OnInit {
   async showToast(message: string, color: string) {
     const toast = await this.toastController.create({
       message,
-      duration: 2000,
+      duration: 4000,
       position: 'top',
       color,
+      buttons: [
+        {
+          icon: 'close-outline',
+          role: 'cancel',
+        }
+      ],
     });
     toast.present();
   }

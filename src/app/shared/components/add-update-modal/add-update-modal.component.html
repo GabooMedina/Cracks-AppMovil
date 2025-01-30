@@ -16,16 +16,39 @@
       <!-- Campos del formulario -->
       <ion-item *ngFor="let field of fields">
         <ion-label position="stacked">{{ field.label }}</ion-label>
+
+        <!-- Campo de texto -->
         <ion-input
           *ngIf="field.type === 'text'"
           formControlName="{{ field.key }}"
           [type]="field.type"
         ></ion-input>
+
+        <!-- Campo numérico -->
         <ion-input
           *ngIf="field.type === 'number'"
           formControlName="{{ field.key }}"
           [type]="field.type"
         ></ion-input>
+
+        <!-- Campo de selección -->
+        <ion-select
+          *ngIf="field.type === 'select'"
+          formControlName="{{ field.key }}"
+          [interface]="'popover'"
+        >
+          <ion-select-option *ngFor="let option of field.options" [value]="option.value">
+            {{ option.label }}
+          </ion-select-option>
+        </ion-select>
+
+        <!-- Campo de fecha -->
+        <ion-datetime
+          *ngIf="field.type === 'date'"
+          formControlName="{{ field.key }}"
+          [min]="minDate"
+          displayFormat="DD/MM/YYYY"
+        ></ion-datetime>
       </ion-item>
 
       <!-- Mostrar errores de validación -->
@@ -33,11 +56,9 @@
         Por favor, completa todos los campos requeridos.
       </ion-text>
 
-      
-        <ion-button expand="block" type="submit" [disabled]="form.invalid">
-          {{ isEdit ? 'Actualizar' : 'Guardar' }}
-        </ion-button>
-      
+      <ion-button expand="block" type="submit" [disabled]="form.invalid">
+        {{ isEdit ? 'Actualizar' : 'Guardar' }}
+      </ion-button>
     </form>
   </div>
 </ion-content>

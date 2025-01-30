@@ -86,3 +86,17 @@
       display: block; // Para centrar el botón
     }
   }
+
+  /* Texto de error */
+ion-text[color="danger"] {
+  font-size: 14px;
+  margin: 10px 0;
+  text-align: center;
+  width: 100%;
+  display: block;
+  color: #d9534f; /* Color más visible para el texto */
+  background-color: #f8d7da; /* Fondo suave de error */
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #d9534f; /* Borde rojo para el error */
+}

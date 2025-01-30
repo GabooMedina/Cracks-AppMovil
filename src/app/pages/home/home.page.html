@@ -1,11 +1,53 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Resumen 
+      Estadísticas
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="home_content">
+  
+  <!-- Barra de búsqueda para filtrar por nombre del jugador -->
+  <ion-searchbar [(ngModel)]="playerName" (ionInput)="filterByPlayer()" debounce="500" showClearButton="focus" placeholder="Buscar jugador..."></ion-searchbar>
+
+  <!-- Contenedor para la imagen y el texto descriptivo -->
+  <div class="description-container">
+    <img src="../../../assets/icon/results.png" alt="Descripción de la imagen" class="description-image" />
+    <p class="description-text">
+      Gestiona tus partidos de forma sencilla: crea, edita y elimina partidos en nuestra 
+      aplicación <strong>Cracks</strong> para llevar el control completo.
+    </p>
+  </div>
+
+  <!-- Lista de estadísticas de jugadores en tarjetas -->
+  <ion-card *ngFor="let stat of filteredStatistics; let i = index" class="stat-card">
+    <ion-card-header>
+      <ion-card-title>{{ stat.player_name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Goles:</strong> <span class="highlight">{{ stat.goals }}</span></p>
+      <p><strong>Asistencias:</strong> <span class="highlight">{{ stat.assits }}</span></p>
+      <p><strong>Tarjetas Amarillas:</strong> {{ stat.yellow_cards }}</p>
+      <p><strong>Tarjetas Rojas:</strong> {{ stat.red_cards }}</p>
+      
+      <!-- Opciones para editar o eliminar -->
+      <div class="options-container">
+        <ion-button fill="clear" color="primary" (click)="openModal(stat)">
+          <ion-icon name="create"></ion-icon> Editar
+        </ion-button>
+        <ion-button fill="clear" color="danger" (click)="stat.id && deleteStatistic(stat.id)">
+          <ion-icon name="trash"></ion-icon> Eliminar
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botón flotante para añadir nuevas estadísticas -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="openModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

@@ -1,11 +1,57 @@
-.acount_content{
-    --background: var(--ion-color-primary);
-    text-align: center;
-    overflow: show;
+.acount_content {
+  --background: #FCFCFC;
+  display: flex;
+  justify-content: center; /* Centra el contenido verticalmente */
+  align-items: center; /* Centra el contenido horizontalmente */
+  padding: 30px 20px; /* Más padding para los bordes laterales */
+}
+
+ion-toolbar {
+  --background: var(--ion-color-secondary);
+}
+
+ion-title {
+  --color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centrar elementos verticalmente */
+  margin-top: 80px; /* Espaciado mayor desde el inicio de la pantalla */
+  text-align: center;
+  padding: 0 15px; /* Espaciado lateral para los elementos */
+
+  .profile-avatar {
+    width: 200px; /* Tamaño de la imagen */
+    height: 200px;
+    margin-bottom: 20px;
   }
-  ion-toolbar{
-    --background: var(--ion-color-secondary);
+
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
   }
-  ion-title{
-    --color: var(--ion-color-secondary-contrast);
+
+  ion-button {
+    margin-top: 20px;
+    width: 60%; /* Reducir el ancho del botón */
+    max-width: 200px; /* Máximo ancho del botón */
   }
+
+  .farewell-message {
+    margin-top: 25px;
+    font-size: 1.1em;
+    color: #555;
+    text-align: center; /* Centrar el texto */
+    line-height: 1.5; /* Mejorar la legibilidad */
+  }
+}
+
+ion-button::part(native) {
+  border-radius: 80px !important;
+}

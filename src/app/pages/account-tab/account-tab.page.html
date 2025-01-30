@@ -9,7 +9,18 @@
 <ion-content [fullscreen]="true" class="acount_content">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">account-tab</ion-title>
+      <ion-title size="large">Mi Cuenta</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="profile-container" *ngIf="user">
+    <ion-avatar class="profile-avatar">
+      <img src="../../../assets/icon/man.png" alt="Imagen de usuario">
+    </ion-avatar>
+    <h2>{{ user.displayName || user.email }}</h2>
+    <ion-button expand="block" color="danger" (click)="logout()">
+      Cerrar Sesión
+    </ion-button>
+    <p class="farewell-message">¡Gracias por visitarnos! Vuelve pronto, te estaremos esperando.</p>
+  </div>
 </ion-content>
