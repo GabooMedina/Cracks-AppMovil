@@ -109,6 +109,8 @@ Google Calendar API (Sincronización)
 
 OneSignal (Notificaciones push)
 
+## 🤖 Configuración
+
 ```bash
 # Clonar repositorio
 git clone https://github.com/GabooMedina/Cracks-AppMovil.git
