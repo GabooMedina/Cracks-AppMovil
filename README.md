@@ -70,6 +70,45 @@ src/
 └── services/             # Lógica de Firebase
 ```
 
+## 🏗 Arquitectura del Sistema
+
+```mermaid
+graph TD
+    A[Frontend Ionic] -->|Consume| B[Firebase Services]
+    B --> C[Firestore]
+    B --> D[Realtime DB]
+    B --> E[Auth]
+    B --> F[Cloud Functions]
+    F --> G[Third-Party APIs]
+    C --> H[Equipos/Jugadores]
+    D --> I[Partidos en vivo]
+
+```
+
+## 🔷 Capas Principales
+
+##### Frontend (Ionic + Angular)
+
+Componentes reutilizables
+
+Gestión de estado con RxJS
+
+Diseño responsive con Ionic Components
+
+##### Backend (Firebase)
+
+Firestore: Datos estructurados (torneos, equipos)
+
+Realtime DB: Sincronización en vivo de partidos
+
+Cloud Functions: Lógica de negocio y triggers
+
+##### Integraciones
+
+Google Calendar API (Sincronización)
+
+OneSignal (Notificaciones push)
+
 ```bash
 # Clonar repositorio
 git clone https://github.com/GabooMedina/Cracks-AppMovil.git
@@ -88,7 +127,7 @@ ionic cap run android
 ionic build --prod
 ```
 
-📋 Requisitos del Sistema:
+## 📋 Requisitos del Sistema:
 
 Node.js 18+
 
@@ -98,5 +137,5 @@ Capacitor (para builds nativos)
 
 Cuenta Firebase configurada
 
-👤 Autor
+## 👤 Autor
 Gabriel Medina
