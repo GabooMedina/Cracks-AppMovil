@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 import { map, Observable } from 'rxjs';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
-
+import 'firebase/compat/auth'; // Importa el módulo de autenticación de Firebase
 
 @Injectable({
   providedIn: 'root'

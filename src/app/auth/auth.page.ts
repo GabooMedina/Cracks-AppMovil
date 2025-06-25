@@ -72,6 +72,7 @@ export class AuthPage implements OnInit {
       this.router.navigate(['/navigation-tabs']);
       this.showToast(`Bienvenido, ${user.user?.displayName}`, 'success');
     } catch (error) {
+      console.error('Error en logInWithFacebook:', error);
       this.showToast('Error al iniciar sesión con Facebook', 'danger');
     }
   }
